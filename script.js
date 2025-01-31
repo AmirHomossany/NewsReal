@@ -151,7 +151,7 @@ function endGame() {
     endScreen.innerHTML = ''; // Clear previous content
 
     // Create headings and their containers
-    const headings = ['Headline', 'Your Answers', 'Correct Answers'];
+    const headings = ['Headline', 'Your Answers', ' '];
     const headingsContainer = document.createElement('div');
     headingsContainer.className = 'end-headings-container';
     endScreen.appendChild(headingsContainer);
