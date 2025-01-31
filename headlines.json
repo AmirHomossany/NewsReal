@@ -1,0 +1,51 @@
+{
+    "Monday": [
+        { "text": "Monday Headline 1", "isReal": true, "source": "Source A" },
+        { "text": "Monday Headline 2", "isReal": false, "source": " " },
+        { "text": "Monday Headline 3", "isReal": true, "source": "Source B" },
+        { "text": "Monday Headline 4", "isReal": false, "source": " " },
+        { "text": "Monday Headline 5", "isReal": true, "source": "Source C" }
+    ],
+    "Tuesday": [
+        { "text": "Tuesday Headline 1", "isReal": true, "source": "Source D" },
+        { "text": "Tuesday Headline 2", "isReal": false, "source": " " },
+        { "text": "Tuesday Headline 3", "isReal": true, "source": "Source E" },
+        { "text": "Tuesday Headline 4", "isReal": false, "source": " " },
+        { "text": "Tuesday Headline 5", "isReal": true, "source": "Source F" }
+    ],
+    "Wednesday": [
+        { "text": "Wednesday Headline 1", "isReal": true, "source": "Source G" },
+        { "text": "Wednesday Headline 2", "isReal": false, "source": " " },
+        { "text": "Wednesday Headline 3", "isReal": true, "source": "Source H" },
+        { "text": "Wednesday Headline 4", "isReal": false, "source": " " },
+        { "text": "Wednesday Headline 5", "isReal": true, "source": "Source I" }
+    ],
+    "Thursday": [
+        { "text": "Thursday Headline 1", "isReal": true, "source": "Source J" },
+        { "text": "Thursday Headline 2", "isReal": false, "source": " " },
+        { "text": "Thursday Headline 3", "isReal": true, "source": "Source K" },
+        { "text": "Thursday Headline 4", "isReal": false, "source": " " },
+        { "text": "Thursday Headline 5", "isReal": true, "source": "Source L" }
+    ],
+    "Friday": [
+        { "text": "Friday Headline 1", "isReal": true, "source": "Source M" },
+        { "text": "Friday Headline 2", "isReal": false, "source": " " },
+        { "text": "Friday Headline 3", "isReal": true, "source": "Source N" },
+        { "text": "Friday Headline 4", "isReal": false, "source": " " },
+        { "text": "Friday Headline 5", "isReal": true, "source": "Source O" }
+    ],
+    "Saturday": [
+        { "text": "Saturday Headline 1", "isReal": true, "source": "Source P" },
+        { "text": "Saturday Headline 2", "isReal": false, "source": " " },
+        { "text": "Saturday Headline 3", "isReal": true, "source": "Source Q" },
+        { "text": "Saturday Headline 4", "isReal": false, "source": " " },
+        { "text": "Saturday Headline 5", "isReal": true, "source": "Source R" }
+    ],
+    "Sunday": [
+        { "text": "Sunday Headline 1", "isReal": true, "source": "Source S" },
+        { "text": "Sunday Headline 2", "isReal": false, "source": " " },
+        { "text": "Sunday Headline 3", "isReal": true, "source": "Source T" },
+        { "text": "Sunday Headline 4", "isReal": false, "source": " " },
+        { "text": "Sunday Headline 5", "isReal": true, "source": "Source U" }
+    ]
+}

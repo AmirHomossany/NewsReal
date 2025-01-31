@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Second Game</h1>
+    </header>
+    <main>
+        <!-- Game Instructions Page -->
+        <div id="intro-page" class="intro-page active">
+            <h2>Welcome to Second Game</h2>
+            <p>You will see five news headlines from the last week</p>
+            <p>Three are Real, Two are Fake</p> 
+            <p>Correctly Identify which is which!</p>
+            <button id="start-button">Start</button>
+        </div>
+    
+        <!-- Guessing Page -->
+        <div id="game-page" class="game-page hidden">
+            <div id="game-container">
+                <div id="headline-container">
+                    <p id="question">Is this a real headline from last week, or is it made up?</p>
+                    <p id="headline">"Headline will appear here."</p>
+                    <div id="options">
+                        <button class="choice-button" data-choice="real">Real</button>
+                        <button class="choice-button" data-choice="fake">Fake</button>
+                    </div>
+                </div>
+                <div id="progress"></div>
+            </div>
+        </div>
+    
+        <!-- End Screen -->
+        <div id="end-screen" class="hidden">
+            <!-- New vertical boxes for results will be dynamically generated here -->
+        </div>
+    </main>    
+
+    <script src="script.js"></script>
+</body>
+</html>

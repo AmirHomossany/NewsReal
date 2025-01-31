@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+#headline-container {
+    flex-grow: 1;
+    margin-right: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+#question {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+#headline {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: opacity 0.5s;
+    text-align: center;
+    align-items: center;
+}
+
+.choice-button {
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.choice-button:hover {
+    background-color: #0056b3;
+}
+
+.choice-button[data-choice="real"] {
+    background-color: #6e9ed1;
+    color: white;
+}
+
+.choice-button[data-choice="real"]:hover {
+    background-color: #6e9ed1;
+}
+
+.choice-button[data-choice="fake"] {
+    background-color: #da90eb;
+    color: black;
+}
+
+.choice-button[data-choice="fake"]:hover {
+    background-color: #da90eb;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #00bfa5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#start-button:hover {
+    background-color: #009688;
+}
+
+#progress {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.5s ease; /* Smooth position changes */
+}
+
+.progress-box {
+    width: 40px;
+    height: 25px;
+    margin: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.progress-box.filled-green {
+    background-color: #6e9ed1;
+    transform: rotateY(360deg);
+}
+
+.progress-box.filled-red {
+    background-color: #da90eb;
+    transform: rotateY(360deg);
+}
+
+#end-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.end-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the headline box */
+    width: 100%;
+    position: relative;
+}
+
+.end-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the box */
+    width: 100%;
+}
+
+.end-container {
+    display: flex;
+    justify-content: center; /* Centers only the headline box */
+    align-items: center;
+    width: 100%;
+    position: relative;
+    transform: translateX(20px);
+}
+
+.end-content {
+    display: flex;
+    align-items: center;
+}
+
+.end-box {
+    width: 80%;
+    height: 50px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers text inside the box */
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.end-box.filled-green {
+    background-color: #6e9ed1;
+}
+
+.end-box.filled-red {
+    background-color: #da90eb;
+}
+
+/* Ensures the indicator appears separately to the right */
+.indicator {
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 8px; /* Space from the box */
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.7s ease; /* Adjust duration to match the delay */
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.7s ease; /* Adjust duration to match the delay */
+}
