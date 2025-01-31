@@ -211,3 +211,71 @@ h1 {
     opacity: 1;
     transition: opacity 0.7s ease; /* Adjust duration to match the delay */
 }
+
+#extra-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#help-button, #sources-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#help-button:hover, #sources-button:hover {
+    background-color: #0056b3;
+}
+
+.end-headings {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.end-heading-container {
+    display: flex;
+    justify-content: center; /* Center the heading within its container */
+}
+
+.end-headlines-container {
+    display: flex;
+    flex-direction: column; /* Stack the headlines vertically */
+}
+
+.end-headline-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.end-box {
+    width: 30%;
+    height: 50px;
+    margin: 10px 0;
+    border: none; /* Removed border */
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}

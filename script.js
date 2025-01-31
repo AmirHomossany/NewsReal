@@ -60,9 +60,13 @@ const rulesSection = document.getElementById("intro-page");
 const headlineText = document.getElementById("headline");
 const progress = document.getElementById("progress");
 const choiceButtons = document.querySelectorAll(".choice-button");
+const helpButton = document.getElementById("help-button");
+const sourcesButton = document.getElementById("sources-button");
 
 startButton.addEventListener("click", startGame);
 choiceButtons.forEach(button => button.addEventListener("click", handleChoice));
+helpButton.addEventListener("click", showHelp); // Added event listener
+sourcesButton.addEventListener("click", showSources); // Added event listener
 
 // Get today's headlines
 function getTodaysHeadlines() {
@@ -135,6 +139,8 @@ function handleChoice(event) {
     showNextHeadline();
 }
 
+// ... (Existing code) ...
+
 function endGame() {
     document.getElementById("headline-container").classList.add("hidden");
     choiceButtons.forEach(button => button.classList.add("hidden"));
@@ -142,40 +148,66 @@ function endGame() {
 
     const endScreen = document.getElementById("end-screen");
     endScreen.classList.remove("hidden");
+    endScreen.innerHTML = ''; // Clear previous content
+
+    // Create headings and their containers
+    const headings = ['Headline', 'Your Answers', 'Correct Answers'];
+    const headingsContainer = document.createElement('div');
+    headingsContainer.className = 'end-headings-container';
+    endScreen.appendChild(headingsContainer);
+
+    headings.forEach(heading => {
+        const headingElement = document.createElement('h3');
+        headingElement.textContent = heading;
+        headingElement.classList.add('end-heading'); // Add class for styling
+
+        // Create a container for each heading
+        const headingContainer = document.createElement('div');
+        headingContainer.className = 'end-heading-container';
+        headingContainer.appendChild(headingElement);
+
+        headingsContainer.appendChild(headingContainer);
+    });
+
+    // Create main container for headlines
+    const headlinesContainer = document.createElement('div');
+    headlinesContainer.className = 'end-headlines-container';
+    endScreen.appendChild(headlinesContainer);
 
     headlines.forEach((headline, index) => {
         const userSelectedGreen = progress.children[index].classList.contains("filled-green");
         const userSelectedRed = progress.children[index].classList.contains("filled-red");
+        const isCorrect = (userSelectedGreen && headline.isReal) || (userSelectedRed && !headline.isReal);
 
-        const endBox = document.createElement("div");
-        endBox.className = "end-box";
-        endBox.style.backgroundColor = userSelectedGreen ? "#6e9ed1" : "#da90eb";
-        endBox.textContent = `"${headline.text}"`;
+        // Create a container for each headline
+        const headlineRow = document.createElement('div');
+        headlineRow.className = 'end-headline-row';
+        headlinesContainer.appendChild(headlineRow);
 
-        const indicator = document.createElement("div");
-        indicator.className = "indicator";
-        indicator.style.opacity = 0;
-        indicator.style.transition = "opacity 0.5s ease";
-        indicator.style.marginLeft = "8px";
+        // Headline column
+        const headlineBox = document.createElement('div');
+        headlineBox.className = 'end-box';
+        headlineBox.textContent = `"${headline.text}"`;
+        headlineRow.appendChild(headlineBox);
 
-        const userWasCorrect = (headline.isReal && userSelectedGreen) || (!headline.isReal && userSelectedRed);
-        indicator.textContent = userWasCorrect ? "✔️" : "✖️";
-        indicator.style.color = userWasCorrect ? "#4CAF50" : "#F44336";
+        // Your answers column
+        const userAnswerBox = document.createElement('div');
+        userAnswerBox.className = 'end-box';
+        userAnswerBox.textContent = userSelectedGreen ? "True" : "False";
+        headlineRow.appendChild(userAnswerBox);
 
-        const contentWrapper = document.createElement("div");
-        contentWrapper.className = "end-content";
-        contentWrapper.appendChild(endBox);
-        contentWrapper.appendChild(indicator);
+        // Correct Answers column (initially hidden)
+        const correctAnswerBox = document.createElement('div');
+        correctAnswerBox.className = 'end-box';
+        correctAnswerBox.textContent = isCorrect ? "✅" : "❌";
+        correctAnswerBox.classList.add('fade-out');
+        headlineRow.appendChild(correctAnswerBox);
 
-        const container = document.createElement("div");
-        container.className = "end-container";
-        container.appendChild(contentWrapper);
-
-        endScreen.appendChild(container);
-
+        // Fade in the correct answer after a delay
         setTimeout(() => {
-            indicator.style.opacity = 1;
-        }, index * 500);
+            correctAnswerBox.classList.remove('fade-out');
+            correctAnswerBox.classList.add('fade-in');
+        }, index * 300); // Increased the delay duration
     });
 
     // Display the user's score
@@ -206,6 +238,8 @@ function endGame() {
     setInterval(updateCountdown, 1000); // Update every second
 }
 
+// ... (Existing code) ...
+
 // Function to calculate and update countdown timer
 function updateCountdown() {
     const now = new Date();
@@ -219,4 +253,12 @@ function updateCountdown() {
 
     document.getElementById("countdown-timer").textContent =
         `Next set of headlines in: ${hours}h ${minutes}m ${seconds}s`;
+}
+
+function showHelp() {
+    alert("Welcome to NewsReal! You will see five news headlines from the last week. Three are Real, Two are Fake. Correctly Identify which is which!");
+}
+
+function showSources() {
+    alert("Our headlines are curated from a range of reputable news sources, including: \n\nThe Guardian: [https://www.theguardian.com/](https://www.theguardian.com/)\nBBC News: [https://www.bbc.com/news](https://www.bbc.com/news)\nThe New York Times: [https://www.nytimes.com/](https://www.nytimes.com/)");
 }
