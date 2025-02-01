@@ -32,14 +32,14 @@ const headlinesRepository = {
         { text: "Study to deliberately infect people with malaria", isReal: true, source: "https://www.bbc.co.uk/news/articles/cj91edgye41o"},
         { text: "Plans announced to replace London Tube drivers with AI within 5 years", isReal: false, source: " " },
         { text: "Trump refuses to provide support to LA amidst wildfires - declares the disaster 'their problem'", isReal: false, source: "" },
-        { text: "'Hot garbage': Australians react to smell of 'corpse flower' in bloom", isReal: true, source: "https://www.bbc.com/news/videos/c07kdd1g0e7o" }
+        { text: "'Hot garbage': Australians react to smell of 'corpse flower' in bloom", isReal: true, source: "https://www.bbc.com/news/videos/c07kdd1g0e7o"}
     ],
     "Saturday": [
-        { text: "Saturday Headline 1", isReal: true, source: "Source P" },
-        { text: "Saturday Headline 2", isReal: false, source: "" },
-        { text: "Saturday Headline 3", isReal: true, source: "Source Q" },
-        { text: "Saturday Headline 4", isReal: false, source: "" },
-        { text: "Saturday Headline 5", isReal: true, source: "Source R" }
+        { text: "Elon Musk admits cheating at video games", isReal: true, source: "Source M" },
+        { text: "Study to deliberately infect people with malaria", isReal: true, source: "https://www.bbc.co.uk/news/articles/cj91edgye41o"},
+        { text: "Plans announced to replace London Tube drivers with AI within 5 years", isReal: false, source: " " },
+        { text: "Trump refuses to provide support to LA amidst wildfires - declares the disaster 'their problem'", isReal: false, source: "" },
+        { text: "'Hot garbage': Australians react to smell of 'corpse flower' in bloom", isReal: true, source: "https://www.bbc.com/news/videos/c07kdd1g0e7o"}
     ],
     "Sunday": [
         { text: "Sunday Headline 1", isReal: true, source: "Source S" },
