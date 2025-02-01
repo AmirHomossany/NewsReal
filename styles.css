@@ -288,3 +288,42 @@ h1 {
     width: 100%;
     margin-bottom: 20px;
 }
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    #game-container {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    #headline-container {
+        width: 100%; /* Make headline container full width */
+        margin-right: 0;
+    }
+
+    #headline {
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    .choice-button {
+        width: 45%; /* Make buttons smaller */
+        margin: 5px; /* Adjust margins */
+    }
+
+    .end-headline-row {
+        flex-direction: column; /* Stack headlines vertically */
+        align-items: center;
+    }
+
+    .end-box {
+        width: 90%; /* Make boxes wider */
+        margin: 5px 0;
+    }
+
+    #progress {
+        flex-direction: column; /* Stack progress boxes vertically */
+        align-items: center;
+    }
+
+    .progress-box {
+        margin: 2px; /* Adjust margins */
+    }
+}
