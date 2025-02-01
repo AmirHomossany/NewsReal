@@ -291,12 +291,15 @@ h1 {
 
 @media (max-width: 768px) { /* Adjust breakpoint as needed */
     #game-container {
-        flex-direction: column; /* Stack elements vertically */
+        flex-direction: row; /* Arrange elements horizontally */
+        flex-wrap: wrap; /* Allow elements to wrap onto multiple lines */
+        justify-content: space-around; /* Distribute elements evenly */
     }
 
     #headline-container {
-        width: 100%; /* Make headline container full width */
-        margin-right: 0;
+        width: 45%; /* Adjust width to fit the screen */
+        margin-right: 10px;
+        text-align: left; /* Align headline text to the left */
     }
 
     #headline {
@@ -308,17 +311,8 @@ h1 {
         margin: 5px; /* Adjust margins */
     }
 
-    .end-headline-row {
-        flex-direction: column; /* Stack headlines vertically */
-        align-items: center;
-    }
-
-    .end-box {
-        width: 90%; /* Make boxes wider */
-        margin: 5px 0;
-    }
-
     #progress {
+        width: 45%; /* Adjust width to fit the screen */
         flex-direction: column; /* Stack progress boxes vertically */
         align-items: center;
     }
