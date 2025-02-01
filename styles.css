@@ -289,35 +289,68 @@ h1 {
     margin-bottom: 20px;
 }
 
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
+/* Mobile Styles */
+@media (max-width: 768px) {
     #game-container {
-        flex-direction: row; /* Arrange elements horizontally */
-        flex-wrap: wrap; /* Allow elements to wrap onto multiple lines */
-        justify-content: space-around; /* Distribute elements evenly */
-    }
-
-    #headline-container {
-        width: 45%; /* Adjust width to fit the screen */
-        margin-right: 10px;
-        text-align: left; /* Align headline text to the left */
-    }
-
-    #headline {
-        font-size: 1.2rem; /* Adjust font size for smaller screens */
-    }
-
-    .choice-button {
-        width: 45%; /* Make buttons smaller */
-        margin: 5px; /* Adjust margins */
-    }
-
-    #progress {
-        width: 45%; /* Adjust width to fit the screen */
+        flex-direction: column; /* Stack elements vertically */
+        width: 90%; /* Adjust width for mobile */
+        padding: 10px;
+      }
+      #headline-container {
+        margin-right: 0; /* No margin on mobile */
+      }
+      #headline {
+        font-size: 1.2rem; /* Reduce font size */
+      }
+      .choice-button {
+        width: 45%; /* Make buttons wider */
+        margin: 5px; /* Adjust margin */
+      }
+      #progress {
         flex-direction: column; /* Stack progress boxes vertically */
-        align-items: center;
+        width: 100%;
+      }
+      .progress-box {
+        margin: 3px; /* Adjust margin */
+      }
+  
+    #end-screen {
+      padding: 10px;
+      flex-direction: row; /* Keep columns horizontal */
+      flex-wrap: wrap; /* Allow columns to wrap if needed */
     }
-
-    .progress-box {
-        margin: 2px; /* Adjust margins */
+  
+    .end-container {
+      width: 100%;
+      flex-direction: column; /* Stack elements vertically */
+      padding: 10px;
     }
-}
+  
+    .end-heading-container {
+      width: 100%;
+    }
+  
+    .end-headlines-container {
+      flex-direction: column;
+    }
+  
+    .end-headline-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .end-box {
+      width: 90%;
+      margin-bottom: 5px;
+    }
+  
+    /* Extra Buttons Styling */
+    #extra-buttons {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 5px;
+    }
+  
+    #help-button, #sources-button {
+      width: 100%;
+    }
+  }
