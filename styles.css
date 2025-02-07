@@ -291,35 +291,63 @@ h1 {
 
 /* mobile responsive styles */
 
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
+@media (max-width: 768px) {
+    /* Ensure the overall game container remains columnar and centered */
     #game-container {
-        flex-direction: row; /* Arrange elements horizontally */
-        flex-wrap: wrap; /* Allow elements to wrap onto multiple lines */
-        justify-content: space-around; /* Distribute elements evenly */
-    }
-
-    #headline-container {
-        width: 45%; /* Adjust width to fit the screen */
-        margin-right: 10px;
-        text-align: left; /* Align headline text to the left */
-    }
-
-    #headline {
-        font-size: 1.2rem; /* Adjust font size for smaller screens */
-    }
-
-    .choice-button {
-        width: 45%; /* Make buttons smaller */
-        margin: 5px; /* Adjust margins */
-    }
-
-    #progress {
-        width: 45%; /* Adjust width to fit the screen */
-        flex-direction: column; /* Stack progress boxes vertically */
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
+        padding: 10px;
     }
 
-    .progress-box {
-        margin: 2px; /* Adjust margins */
+    /* Headline container now takes the full width and is centered like on desktop */
+    #headline-container {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
     }
+
+    /* Slightly reduce headline font size for better mobile scaling while keeping it centered */
+    #headline {
+        font-size: 1.3rem;
+    }
+
+    /* Make choice buttons wider and center them */
+    .choice-button {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    /* Use full width for the progress area and keep the row layout with wrapping */
+    #progress {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    /* Provide comfortable spacing for each progress box */
+    .progress-box {
+        margin: 2px;
+    }
+
+    /* Increase vertical spacing between news title rows in the end screen */
+    .end-headline-row {
+        margin-bottom: 20px; /* increased from 10px */
+    }
+
+        /* Allow result boxes to grow as needed so text doesn't overflow */
+        .end-box {
+            height: auto;        /* Remove fixed height */
+            min-height: 50px;     /* Keep a minimum height for short content */
+            padding: 10px;
+            word-break: break-word; /* Ensure long words or headlines wrap */
+        }
+    
+        /* Ensure each endgame row has consistent vertical spacing */
+        .end-headline-row {
+            margin-bottom: 20px; /* Increase gap between rows */
+        }
 }
