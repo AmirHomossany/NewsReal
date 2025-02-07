@@ -63,10 +63,54 @@ const choiceButtons = document.querySelectorAll(".choice-button");
 const helpButton = document.getElementById("help-button");
 const sourcesButton = document.getElementById("sources-button");
 
-startButton.addEventListener("click", startGame);
 choiceButtons.forEach(button => button.addEventListener("click", handleChoice));
-helpButton.addEventListener("click", showHelp);
-sourcesButton.addEventListener("click", showSources);
+
+// Check if we have a firstVisit stored; if not, store today's date
+if (!localStorage.getItem('firstVisit')) {
+    localStorage.setItem('firstVisit', new Date().toISOString());
+  }
+  
+  // Calculate the number of days since the first visit
+  const firstVisit = new Date(localStorage.getItem('firstVisit'));
+  const now = new Date();
+  const diffTime = now - firstVisit;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1; // +1 so day one is "Retention_D1"
+  
+  // Send a GA event for user retention
+  gtag('event', 'Retention_D' + diffDays, {
+    'event_category': 'User',
+    'event_label': 'User Retention',
+    'value': diffDays
+  });
+  
+
+startButton.addEventListener("click", function() {
+    // Send GA event for game start
+    gtag('event', 'Game_Start', {
+      'event_category': 'Game',
+      'event_label': 'Game Started'
+    });
+    startGame();
+  });
+  
+  // For the Help button:
+  helpButton.addEventListener("click", function() {
+    gtag('event', 'Help_Clicked', {
+      'event_category': 'Interaction',
+      'event_label': 'Instructions Clicked'
+    });
+    showHelp(); // (this shows your custom modal)
+  });
+  
+  // For the News Sources button:
+  sourcesButton.addEventListener("click", function() {
+    gtag('event', 'News_Clicked', {
+      'event_category': 'Interaction',
+      'event_label': 'News Sources Clicked'
+    });
+    showSources(); // (this shows your custom modal)
+  });
+  
 
 
 // Get today's headlines
@@ -181,6 +225,13 @@ function handleChoice(event) {
     progressBox.classList.add(userChoice === "real" ? "filled-green" : "filled-red");
     progressBox.style.backgroundColor = userChoice === "real" ? "#6e9ed1" : "#da90eb";
 
+    // Send GA event for progress – tracking the count of questions answered
+    gtag('event', 'Progress', {
+        'event_category': 'Game',
+        'event_label': 'Question Answered',
+        'value': currentHeadlineIndex + 1 // questions answered so far
+    });
+
     // Move to the next headline
     currentHeadlineIndex++;
     showNextHeadline();
@@ -262,6 +313,13 @@ function endGame() {
     scoreDisplay.style.marginTop = "20px";
     scoreDisplay.style.fontSize = "1.5rem";
     endScreen.appendChild(scoreDisplay);
+
+    // send Score event
+    gtag('event', 'Score', {
+        'event_category': 'Game',
+        'event_label': 'Final Score',
+        'value': correctAnswers
+    });
 
     // Add "Come back tomorrow" message
     const message = document.createElement("div");
