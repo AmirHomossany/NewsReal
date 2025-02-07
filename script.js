@@ -65,8 +65,9 @@ const sourcesButton = document.getElementById("sources-button");
 
 startButton.addEventListener("click", startGame);
 choiceButtons.forEach(button => button.addEventListener("click", handleChoice));
-helpButton.addEventListener("click", showHelp); // Added event listener
-sourcesButton.addEventListener("click", showSources); // Added event listener
+helpButton.addEventListener("click", showHelp);
+sourcesButton.addEventListener("click", showSources);
+
 
 // Get today's headlines
 function getTodaysHeadlines() {
@@ -81,6 +82,52 @@ function getTodaysHeadlines() {
         console.log(`Loaded headlines for ${today}:`, headlines);
     }
 }
+
+// Helper function to show the modal with custom content
+function showModal(content) {
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalContent = document.getElementById('modal-content');
+    modalContent.innerHTML = content;
+    modalOverlay.classList.remove('hidden');
+  }
+  
+  // Function to close the modal
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.add('hidden');
+  }
+  
+  // Replace the default alert for Help with the custom modal
+  function showHelp() {
+    const helpContent = `
+      <h2>Help</h2>
+      <p>Welcome to NewsReal! You will see five news headlines from the last week. Three are Real, Two are Fake. Correctly identify which is which!</p>
+    `;
+    showModal(helpContent);
+  }
+  
+  // Replace the default alert for News Sources with the custom modal
+  function showSources() {
+    const sourcesContent = `
+      <h2>News Sources</h2>
+      <p>Our headlines are curated from the following news sources:</p>
+      <p>
+        The Guardian <br>
+        BBC News <br>
+        The New York Times <br>
+      </p>
+    `;
+    showModal(sourcesContent);
+  }
+  
+  // Attach event listener to the modal close button
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  
+  // Optionally, allow closing the modal by clicking outside the modal box:
+  document.getElementById('modal-overlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  });  
 
 function startGame() {
     getTodaysHeadlines(); // Load today's headlines before starting
@@ -138,8 +185,6 @@ function handleChoice(event) {
     currentHeadlineIndex++;
     showNextHeadline();
 }
-
-// ... (Existing code) ...
 
 function endGame() {
     document.getElementById("headline-container").classList.add("hidden");
@@ -238,8 +283,6 @@ function endGame() {
     setInterval(updateCountdown, 1000); // Update every second
 }
 
-// ... (Existing code) ...
-
 // Function to calculate and update countdown timer
 function updateCountdown() {
     const now = new Date();
@@ -253,12 +296,4 @@ function updateCountdown() {
 
     document.getElementById("countdown-timer").textContent =
         `Next set of headlines in: ${hours}h ${minutes}m ${seconds}s`;
-}
-
-function showHelp() {
-    alert("Welcome to NewsReal! You will see five news headlines from the last week. Three are Real, Two are Fake. Correctly Identify which is which!");
-}
-
-function showSources() {
-    alert("Our headlines are curated from a range of reputable news sources, including: \n\nThe Guardian: [https://www.theguardian.com/](https://www.theguardian.com/)\nBBC News: [https://www.bbc.com/news](https://www.bbc.com/news)\nThe New York Times: [https://www.nytimes.com/](https://www.nytimes.com/)");
 }
